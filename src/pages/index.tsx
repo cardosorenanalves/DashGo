@@ -1,5 +1,5 @@
 import { Button, Flex, Stack } from "@chakra-ui/react";
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm, SubmitHandler, FieldError } from 'react-hook-form'
 import { Input } from "../components/Form/Input";
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -48,8 +48,8 @@ export default function SignIn() {
       >
         <Stack spacing='4'>
         
-          <Input name="email" type='email' label="E-mail" error={errors.email} {...register('email')}/>
-          <Input name="password" type='password' label="Senha" error={errors.password} {...register('password')}/>
+          <Input name="email" type='email' label="E-mail" error={errors.email as FieldError} {...register('email')}/>
+          <Input name="password" type='password' label="Senha" error={errors.password as FieldError} {...register('password')}/>
         
         </Stack>
         <Button 
